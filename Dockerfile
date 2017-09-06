@@ -24,18 +24,21 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
 RUN wget http://parity-downloads-mirror.parity.io/v1.7.0/x86_64-unknown-linux-gnu/parity_1.7.0_amd64.deb
 RUN dpkg -i parity_1.7.0_amd64.deb
 RUN mkdir /paritydata
-EXPOSE 30303 8541
-#ENTRYPOINT "parity -d /paritydata --no-ui --port 30303 --jsonrpc-port 8541 --jsonrpc-hosts all --jsonrpc-cors '*' --jsonrpc-apis eth,net,web3 --no-dapps --no-secretstore --no-code --no-storage"
+EXPOSE 30303 8541 8542
 ENTRYPOINT ["parity", \
-            "-d", \
-            "/paritydata", \
-            "--no-ui", \
-            "--port", \
-            "30303", \
+            "--port", "30303", \
             "--jsonrpc-port", "8541", \
+            "--ws-port", "8542", \
+            "-d", "/paritydata", \
+            "--no-ui", \
+            "--ws-apis", "web3,eth,pubsub,net", \
+            "--ws-origins", "all", \
+            "--ws-hosts", "all" \
             "--jsonrpc-hosts", "all", \
             "--jsonrpc-cors", "'*'", \
             "--jsonrpc-apis", "eth,net,web3", \
+            "--jsonrpc-threads", "4", \
+            "--jsonrpc-server-threads", "4", \
             "--no-dapps", \
             "--no-secretstore", \
             "--no-code", \
