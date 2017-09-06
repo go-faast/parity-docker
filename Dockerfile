@@ -33,7 +33,7 @@ ENTRYPOINT ["parity", \
             "--no-ui", \
             "--ws-apis", "web3,eth,pubsub,net", \
             "--ws-origins", "all", \
-            "--ws-hosts", "all" \
+            "--ws-hosts", "all", \
             "--jsonrpc-hosts", "all", \
             "--jsonrpc-cors", "'*'", \
             "--jsonrpc-apis", "eth,net,web3", \
