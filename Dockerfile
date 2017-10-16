@@ -21,8 +21,8 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install parity
-RUN wget http://parity-downloads-mirror.parity.io/v1.7.0/x86_64-unknown-linux-gnu/parity_1.7.0_amd64.deb
-RUN dpkg -i parity_1.7.0_amd64.deb
+RUN wget http://parity-downloads-mirror.parity.io/v1.8.0/x86_64-unknown-linux-gnu/parity_1.8.0_amd64.deb
+RUN dpkg -i parity_1.8.0_amd64.deb
 RUN mkdir /paritydata
 EXPOSE 30303 8541 8542
 ENTRYPOINT ["parity", \
@@ -41,5 +41,4 @@ ENTRYPOINT ["parity", \
             "--jsonrpc-server-threads", "4", \
             "--no-dapps", \
             "--no-secretstore", \
-            "--no-code", \
-            "--no-storage"]
+            "--public-node"]
