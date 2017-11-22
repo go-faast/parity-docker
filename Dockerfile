@@ -35,18 +35,20 @@ ENTRYPOINT ["parity", \
             "--tracing", "on", \
             "--scale-verifiers", \
             "--no-ui", \
-            "--ws-apis", "web3,eth,pubsub,net,parity,parity_pubsub,traces,rpc", \
+            "--no-dapps", \
+            "--no-hardware-wallets", \
+            "--no-secretstore", \
+            "--no-secretstore-http", \
+            "--ws-apis", "web3,eth,pubsub,net,parity,parity_pubsub,traces,rpc,secretstore,shh,shh_pubsub", \
             "--ws-origins", "all", \
             "--ws-interface", "all", \
             "--ws-hosts", "all", \
             "--jsonrpc-hosts", "all", \
             "--jsonrpc-interface", "all", \
             "--jsonrpc-cors", "'*'", \
-            "--jsonrpc-apis", "eth,net,web3", \
-            "--no-dapps", \
-            "--no-secretstore", \
+            "--jsonrpc-apis", "safe", \
             "--tx-queue-mem-limit", "0", \
-            "--tx-queue-size", "1000000000", \
+            "--tx-queue-size", "4294967295", \
+            "--cache-size", "16384", \
             "--jsonrpc-server-threads", "10", \
-            "--jsonrpc-threads", "10", \
-            "--public-node"]
+            "--jsonrpc-threads", "10"]
