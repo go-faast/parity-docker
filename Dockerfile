@@ -32,6 +32,7 @@ ENTRYPOINT ["parity", \
             "--ws-port", "8542", \
             "-d", "/paritydata", \
             "--pruning", "archive", \
+            "--tracing", "on", \
             "--scale-verifiers", \
             "--no-ui", \
             "--ws-apis", "web3,eth,pubsub,net,parity,parity_pubsub,traces,rpc", \
