@@ -30,6 +30,8 @@ ENTRYPOINT ["parity", \
             "--port", "30305", \
             "--jsonrpc-port", "8543", \
             "--ws-port", "8544", \
+            "--warp", \
+            "--mode", "active", \
             "-d", "/paritydata", \
             "--pruning", "fast", \
             "--scale-verifiers", \
