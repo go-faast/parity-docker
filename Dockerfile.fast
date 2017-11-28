@@ -49,7 +49,7 @@ ENTRYPOINT ["parity", \
             "--jsonrpc-cors", "'*'", \
             "--jsonrpc-apis", "safe", \
             "--tx-queue-mem-limit", "0", \
-            "--tx-queue-size", "4294967295", \
-            "--cache-size", "16384", \
+            "--tx-queue-size", "2147483647", \
+            "--cache-size", "8192", \
             "--jsonrpc-server-threads", "10", \
             "--jsonrpc-threads", "10"]
