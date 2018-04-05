@@ -21,8 +21,8 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install parity
-RUN wget https://parity-downloads-mirror.parity.io/v1.8.3/x86_64-unknown-linux-gnu/parity_1.8.3_amd64.deb
-RUN dpkg -i parity_1.8.3_amd64.deb
+RUN wget http://d1h4xl4cr1h0mo.cloudfront.net/v1.10.0/x86_64-unknown-linux-gnu/parity_1.10.0_ubuntu_amd64.deb
+RUN dpkg -i parity_1.10.0_ubuntu_amd64.deb
 # docker run --name=paritydata-fast -v /paritydata busybox chown 1000:1000 /paritydata
 RUN mkdir /paritydata
 EXPOSE 30305 8543 8544
@@ -49,7 +49,7 @@ ENTRYPOINT ["parity", \
             "--jsonrpc-cors", "'*'", \
             "--jsonrpc-apis", "safe", \
             "--tx-queue-mem-limit", "0", \
-            "--tx-queue-size", "2147483647", \
-            "--cache-size", "8192", \
+            "--tx-queue-size", "214748364", \
+            "--cache-size", "4096", \
             "--jsonrpc-server-threads", "10", \
             "--jsonrpc-threads", "10"]
