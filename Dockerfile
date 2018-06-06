@@ -21,8 +21,8 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install parity
-RUN wget http://d1h4xl4cr1h0mo.cloudfront.net/v1.10.4/x86_64-unknown-linux-gnu/parity_1.10.4_ubuntu_amd64.deb
-RUN dpkg -i parity_1.10.4_ubuntu_amd64.deb
+RUN wget http://d1h4xl4cr1h0mo.cloudfront.net/v1.10.6/x86_64-unknown-linux-gnu/parity_1.10.6_ubuntu_amd64.deb
+RUN dpkg -i parity_1.10.6_ubuntu_amd64.deb
 # docker run --name=paritydata -v /paritydata busybox chown 1000:1000 /paritydata
 RUN mkdir /paritydata
 EXPOSE 30303 8541 8542
