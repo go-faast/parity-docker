@@ -21,12 +21,13 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install parity
-RUN wget https://d1h4xl4cr1h0mo.cloudfront.net/v1.11.4/x86_64-unknown-linux-gnu/parity_1.11.4_ubuntu_amd64.deb
-RUN dpkg -i parity_1.11.4_ubuntu_amd64.deb
+RUN wget https://releases.parity.io/v2.1.3/x86_64-unknown-linux-gnu/parity
+RUN chmod +x parity
+RUN mv parity /usr/bin/
 # docker run --name=paritydata -v /paritydata busybox chown 1000:1000 /paritydata
 RUN mkdir /paritydata
 EXPOSE 30303 8541 8542
-ENTRYPOINT ["parity", \
+ENTRYPOINT ["/usr/bin/parity", \
             "--port", "30303", \
             "--jsonrpc-port", "8541", \
             "--ws-port", "8542", \
